@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1377b88a-4ff7-489e-8fe5-0ec70aa8a61f" name="Default Changelist" comment="" />
+    <list default="true" id="1377b88a-4ff7-489e-8fe5-0ec70aa8a61f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +46,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Board.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="913">
+                <state relative-caret-position="159">
                   <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -363,7 +365,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="913">
+        <state relative-caret-position="159">
           <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
