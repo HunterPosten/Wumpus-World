@@ -10,25 +10,48 @@ public class Wumpus implements  Boardable{
 
     Random rand = new Random();
 
-    private int[] xPlaces;
-    private int[] yPlaces;
+
+
 
     Wumpus(Board board) {
         this.board = board;
-        xPlaces = new int[this.board.getHeight()];
-        yPlaces = new int[this.board.getWidth()];
 
-        fillPlaces(xPlaces, yPlaces);
-        this.board.placeItem(this, placeWumpusX(), placeWumpusY());
+        boolean placed = false;
+
+        while(!placed){
+            int x = placeWumpusX();
+            int y = placeWumpusY();
+
+            if((x<=this.board.getWidth() || x>1) && (y<=this.board.getHeight() || y > 1)){
+                this.board.placeItem(this, y, x);
+
+                placed = true;
+            }
+        }
+
 
     }
 
-    private void fillPlaces(int[] x, int[] y){
-        for (int i = 2; i < xPlaces.length; i++) {
-            x[i] = i;
-            y[i] = i;
+    private class Stentch implements Boardable {
+
+        public Stentch(Wumpus wumpus){
+
         }
 
+        @Override
+        public boolean canShare(Boardable item) {
+            return true;
+        }
+
+        @Override
+        public boolean isVisible() {
+            return true;
+        }
+
+        @Override
+        public String toString() {
+            return "S";
+        }
     }
 
     @Override
@@ -47,10 +70,15 @@ public class Wumpus implements  Boardable{
     }
 
     private int placeWumpusX() {
-        return xPlaces[rand.nextInt(this.xPlaces.length)];
-    }
+        int y = rand.nextInt(this.board.getHeight());
+        System.out.println(y);
+        return y;    }
 
     private int placeWumpusY() {
-        return yPlaces[rand.nextInt(this.yPlaces.length)];
+        int x = rand.nextInt(this.board.getWidth());
+        System.out.println(x);
+        return x;
     }
+
+
 }

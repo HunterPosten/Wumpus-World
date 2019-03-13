@@ -68,13 +68,31 @@ public class Board {
         return true;
     }
 
-    public void placeMe(Boardable item) {
+    public ArrayList<Cell> giveMeAdjacentCells(Boardable item) {
 
+        ArrayList<Cell> temp = new ArrayList<>();
+
+        Cell itemCell = whatIsInCell.get(item);
+        int x, y;
+        x = itemCell.getCol();
+        y = itemCell.getRow();
+
+        Cell tempCell1, tempCell2, tempCell3, tempCell4;
+
+        try {
+            tempCell1 = board[x-1][y];
+            tempCell2 = board[x][y-1];
+            tempCell3 = board[x+1][y];
+            
+        } catch (Exception e){
+            System.out.println("Some cells were out of bounds");
+        }
+
+        return temp;
     }
 
-    public int getHeight() { return this.height; }
-
-    public int getWidth() { return this.width; }
+    int getHeight() { return this.height; }
+    int getWidth() { return this.width; }
 
     private class Cell {
 
