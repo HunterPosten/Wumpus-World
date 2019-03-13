@@ -4,15 +4,17 @@
 
 public class Player implements  Boardable {
 
-    Player() {
+    Board board;
 
-
+    Player(Board board) {
+        this.board=board;
+        this.board.placeItem(this, 3,0);
     }
 
 
     @Override
     public boolean canShare(Boardable item) {
-        return false;
+        return true;
     }
 
     @Override

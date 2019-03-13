@@ -13,7 +13,7 @@ public class Board {
 
     private int width;
 
-    HashMap<Cell, Boardable> whatIsInCell;
+    HashMap<Boardable, Cell> whatIsInCell;
 
 
     public Board(int height, int width) {
@@ -36,11 +36,12 @@ public class Board {
 
                 Cell temp = new Cell(row, col);
                 this.board[row][col] = temp;
+
             }
         }
-
     }
-    synchronized public void printBoard()
+
+    synchronized void printBoard()
     {
         for(int row = 0; row < this.height; row++)
         {
@@ -62,12 +63,18 @@ public class Board {
         }
 
         cell = this.board[row][col];
-        cell.items.add(item);
-        whatIsInCell.put(cell, item);
+        cell.addElement(item);
+        whatIsInCell.put(item, cell);
         return true;
     }
 
+    public void placeMe(Boardable item) {
 
+    }
+
+    public int getHeight() { return this.height; }
+
+    public int getWidth() { return this.width; }
 
     private class Cell {
 
@@ -97,7 +104,7 @@ public class Board {
                 return false;
             }
 
-            items.add(item);
+            this.items.add(item);
 
             if(item.isVisible()) { this.isVisible = true; }
 
@@ -109,21 +116,10 @@ public class Board {
         public int getRow() { return this.row; }
 
         public String toString() {
-            if(this.isVisible){
-                if(items.size() != 0) {
-                    if (!(items.get(items.size() - 1).isVisible())) {
-                        return "[" + items.get(items.size()-1).toString() + "]";
-                    } else {
-                        return items.get(items.size() - 1).toString();
-                    }
-                }
-                return "[ ]";
+            if (this.isVisible) {
+                return "[" + items.get(items.size() - 1).toString() + "]";
             }
             return "[ ]";
         }
-
-
-
-
     }
 }
