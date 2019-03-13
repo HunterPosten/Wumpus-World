@@ -4,8 +4,10 @@
  */
 public class Wumpus implements  Boardable{
 
-    Wumpus() {
+    Board board;
 
+    Wumpus(Board board) {
+        this.board = board;
     }
 
     @Override
@@ -16,5 +18,10 @@ public class Wumpus implements  Boardable{
     @Override
     public boolean isVisible(){
         return false;
+    }
+
+    public String toString() {
+
+        return "";
     }
 }
